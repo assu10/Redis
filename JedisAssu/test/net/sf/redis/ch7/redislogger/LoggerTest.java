@@ -41,7 +41,7 @@ public class LoggerTest {
 			try {
 				Thread.sleep(random.nextInt(50));
 			} catch (Exception e) {
-				// do nothing.
+				// do nothing. 
 			}
 		}
 	}
