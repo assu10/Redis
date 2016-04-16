@@ -38,7 +38,7 @@ public class LoggerTest {
 		for (int i=0; i<100; i++) {
 			assertTrue(logWriter.log(i + ", This is new test log message.") > 0);
 			
-			try {
+			try { 
 				Thread.sleep(random.nextInt(50));
 			} catch (Exception e) {
 				// do nothing. 
