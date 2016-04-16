@@ -43,7 +43,7 @@ public class LoggerTest {
 			} catch (Exception e) {
 				// do nothing. 
 			}
-		}
+		}   
 	}
 	
 	@Test
