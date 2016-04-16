@@ -44,10 +44,10 @@ public class LoggerTest {
 				// do nothing. 
 			}
 		}   
-	}
+	} 
 	
 	@Test
-	public void testReceiver() {
+	public void testReciver() {
 		LogReceiverV2 logReceiver = new LogReceiverV2();
 		//for(int i=0;i<5; i++) {
 			logReceiver.start();
