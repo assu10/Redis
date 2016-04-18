@@ -12,7 +12,7 @@ import redis.clients.jedis.Jedis;
  * @author assu
  * @date 2016.04.02
  */
-public class LogWriterV2 {
+public class LogWriterV2 { 
 	private static final String KEY_WAS_LOG = "was:log:list";
 	private SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd HH:mm:ss SSS ");
 	
