@@ -17,7 +17,7 @@ public class LogWriterV2 {
 	private SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd HH:mm:ss SSS ");
 	
 	JedisHelper helper;
-	
+	 
 	/**
 	 * 레디스에 로그를 기록하기 위한 Logger의 생성자
 	 * @param helper 제디스 헬퍼 객체
