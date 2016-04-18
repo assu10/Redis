@@ -2,11 +2,12 @@ package net.sf.redis.ch7.cart;
 
 import java.util.Set;
 
+import net.sf.redis.JedisHelper;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-import net.sf.redis.JedisHelper;
 import redis.clients.jedis.Jedis;
 
 /**
@@ -19,7 +20,7 @@ import redis.clients.jedis.Jedis;
  */
 public class Cart {
 	private Jedis jedis;
-	
+	 
 	/** 해당 고객의 상품정보(상품번호리스트) */
 	private JSONObject cartInfo;
 

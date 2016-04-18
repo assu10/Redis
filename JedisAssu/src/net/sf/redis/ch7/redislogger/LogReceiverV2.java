@@ -11,7 +11,7 @@ import redis.clients.jedis.Jedis;
  * 레디스 서버에 저장된 로그(리스트 데이터 형태를 파일로 저장
  * 
  * @author assu
- * @date 2016.04.02
+ * @date 2016.04.02 
  */
 public class LogReceiverV2 {
 	private static final JedisHelper helper = JedisHelper.getInstance();
