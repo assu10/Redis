@@ -2,12 +2,11 @@ package net.sf.redis.ch7.cart;
 
 import java.util.Set;
 
-import net.sf.redis.JedisHelper;
-
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import net.sf.redis.JedisHelper;
 import redis.clients.jedis.Jedis;
 
 /**

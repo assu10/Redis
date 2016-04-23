@@ -1,6 +1,8 @@
 package net.sf.redis.ch7.cart;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.json.simple.JSONArray;
 import org.junit.AfterClass;
@@ -21,7 +23,7 @@ import net.sf.redis.JedisHelper;
 public class CartTest {
 	private static final String TESTUSER = "16251";
 	static JedisHelper helper;
-	private Cart cart;
+	private CartV2 cart;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() {
@@ -38,7 +40,7 @@ public class CartTest {
 	 */
 	@Before
 	public void setUp() {
-		this.cart = new Cart(helper, TESTUSER);
+		this.cart = new CartV2(helper, TESTUSER);
 		assertNotNull(this.cart);
 	}
 	
@@ -60,9 +62,6 @@ public class CartTest {
 	@Test
 	public void testGetProductList() {
 		JSONArray products = this.cart.getProductList();
-		
-		System.out.println("testGetProductList products - " + products);
-		
 		assertNotNull(products);
 		assertEquals(2, products.size());
 	}
@@ -72,11 +71,8 @@ public class CartTest {
 	 */
 	@Test
 	public void testDeleteProduct() {
-		String[] products= {"151"};
+		String[] products= {"152"};
 		int result = this.cart.deleteProduct(products);
-		
-		System.out.println("testDeleteProduct result - " + result);
-		
 		assertEquals(1, result);
 	}
 	
