@@ -1,6 +1,6 @@
 # Redis #
 
-Redis for ***windows***
+Redis for ***Windows***
 
 Redis for ***Linux*** (add 2016.05.01)
 
