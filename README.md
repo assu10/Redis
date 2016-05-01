@@ -1,16 +1,16 @@
 # Redis #
 
-***Redis*** for windows
+Redis for ***windows***
 
-***Redis*** for Linux (add 2016.05.01)
+Redis for ***Linux*** (add 2016.05.01)
 
 
-Version for windows
+Version for Windows
 - 
 -  redis-2.4.5
 -  jedis-2.1.0 (fully compatible with redis 2.8.x and 3.0.x.)
 
-Version for linux
+Version for Linux
 - 
 -  redis-3.0.7
 -  jedis-2.1.0 (fully compatible with redis 2.8.x and 3.0.x.)
