@@ -30,7 +30,7 @@ public class PipelineData {
 	 * @throws IOException 
 	 */
 	private void makeDataFileAsCommans() throws IOException {
-		String fileName = fileNamePrefix + "_command" + fileNamePostfix;	// 명령어 형식 데이터 파일의 이름 지정
+		String fileName = fileNamePrefix + "_commandss" + fileNamePostfix;	// 명령어 형식 데이터 파일의 이름 지정
 		writer = new BufferedWriter(new FileWriter(fileName));
 		
 		String key, value;

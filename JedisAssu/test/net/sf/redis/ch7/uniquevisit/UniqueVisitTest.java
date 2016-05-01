@@ -91,15 +91,13 @@ public class UniqueVisitTest {
 	
 	/**
 	 * 동일 사용자가 두 번 호출되어도 순방문횟수가 한 번만 증가하는지 확인
-	 * @deprecated bitcount는 2.6.0부터 사용가능한데 나는 2.4.5라 테스트 불가
 	 */
 	@Test
 	public void testUV() {
-		this.uniqueVisit.visit(65487);
+		this.uniqueVisit.visit(65488);
 		Long result = this.uniqueVisit.getUVCount(getToday());
-		this.uniqueVisit.visit(65487);
+		this.uniqueVisit.visit(65488);
 		
-		// 2.6.0부터 사용가능한데 나는 2.4.5라 테스트 불가
 		assertEquals(result, this.uniqueVisit.getUVCount(getToday()));
 	}
 	

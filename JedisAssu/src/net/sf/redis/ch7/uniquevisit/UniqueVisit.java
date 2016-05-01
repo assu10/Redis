@@ -70,11 +70,10 @@ public class UniqueVisit {
 	 * 요청된 날짜의 순방문자수(UniqueView) 조회
 	 * @param date 조회대상 날짜
 	 * @return 순방문자수
-	 * @deprecated bitcount는 2.6.0부터 사용가능한데 나는 2.4.5라 테스트 불가
 	 */
 	public Long getUVCount(String date) {
 		// bitcount(key, [start index],[end index]) - 숫자응답(지정된 범위에 저장된 비트 중 1의 갯수)
-		// 2.6.0부터 사용가능한데 나는 2.4.5라 테스트 불가
+		System.out.println("요청된 날짜의 순방문자수(UniqueView) 조회, getUVCount - " + jedis.bitcount(KEY_UNIQUE_VISITOR + date));
 		return jedis.bitcount(KEY_UNIQUE_VISITOR + date);
 	}
 	
