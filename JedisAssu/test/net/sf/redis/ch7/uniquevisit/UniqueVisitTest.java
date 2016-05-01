@@ -16,7 +16,7 @@ import net.sf.redis.JedisHelper;
 /**
  * UniqueVisit 테스트 클래스
  * 
- * 천망명의 회원이 있다고 가정하고, 
+ * 천만명의 회원이 있다고 가정하고, 
  * 비정상적인 상태와 정상 상태에 대한 테스트 
  * 
  * @author assu
