@@ -18,7 +18,7 @@ import redis.clients.jedis.JedisPool;
  * @author assu
  * @date 2016.03.31
  */
-public class JedisHelper {
+public class JedisHelper { 
 	//protected static final String REDIS_HOST = "127.0.0.1";			// 윈도우
 	protected static final String REDIS_HOST = "192.168.56.102";	// 리눅스
 	protected static final int REDIS_PORT = 6379;
