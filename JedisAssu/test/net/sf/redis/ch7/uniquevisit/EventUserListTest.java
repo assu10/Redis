@@ -91,6 +91,5 @@ public class EventUserListTest {
 		}
 		
 		System.out.println("count - " + count);
-		
 	}
 }
