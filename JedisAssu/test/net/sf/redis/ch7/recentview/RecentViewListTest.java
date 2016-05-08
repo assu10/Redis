@@ -25,7 +25,7 @@ public class RecentViewListTest {
 	static JedisHelper helper;
 	private RecentViewList recentViewList;
 	private static final String TEST_USER = "12345";
-	private int LIST_MAX_SIZE;
+	private int listMaxSize;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() {
@@ -41,7 +41,7 @@ public class RecentViewListTest {
 	public void setUp() {
 		this.recentViewList = new RecentViewList(helper, TEST_USER);
 		assertNotNull(this.recentViewList);
-		this.LIST_MAX_SIZE = this.recentViewList.getListMaxSize();
+		this.listMaxSize = this.recentViewList.getListMaxSize();
 	}
 	
 	/**
@@ -60,7 +60,7 @@ public class RecentViewListTest {
 	@Test
 	public void checkMaxSize() {
 		int storedSize = this.recentViewList.getRecentViewList().size();
-		assertEquals(this.LIST_MAX_SIZE, storedSize);
+		assertEquals(this.listMaxSize, storedSize);
 	}
 	
 	/**
@@ -79,7 +79,7 @@ public class RecentViewListTest {
 	@Test
 	public void checkProductNo() {
 		this.recentViewList.add("57");	// 55번 상품 저장
-		assertEquals(this.recentViewList.getRecentViewList().size(), this.LIST_MAX_SIZE);
+		assertEquals(this.recentViewList.getRecentViewList().size(), this.listMaxSize);
 		List<String> itemList = this.recentViewList.getRecentViewList(5);
 		assertEquals("57", itemList.get(0));
 		for(String item : itemList) {

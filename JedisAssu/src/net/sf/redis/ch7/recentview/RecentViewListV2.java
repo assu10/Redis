@@ -22,11 +22,11 @@ public class RecentViewListV2 {
 	/** 사용자가 조회한 상품 목록 (recent:view:zset:12345) */
 	private static final String KEY_VIEW_SET = "recent:view:zset:";
 	private static final int LIST_MAX_SIZE = 20;
-	private String KEY;
+	private String key;
 	
 	public RecentViewListV2(JedisHelper helper, String userNo) {
 		this.jedis = helper.getConnection();
-		this.KEY = KEY_VIEW_SET + userNo;
+		this.key = KEY_VIEW_SET + userNo;
 	}
 	
 	/**
@@ -36,12 +36,12 @@ public class RecentViewListV2 {
 	 */
 	public Long add(String productNo) {
 		// zadd(키,가중치,요소) : 이미 존재하면 저장된 요소의 가중치 변경, 새로 추가되면 1, 기존에 존재하면 0 반환
-		Long result = jedis.zadd(this.KEY, System.nanoTime(), productNo);
+		Long result = jedis.zadd(this.key, System.nanoTime(), productNo);
 		
 		// zrangeByRank(키,시작인덱스,종료인덱스) : 주어진 키에 저장된 요소 중에서 순위가 시작인덱스부터 종료인덱스 범위에 해당하는 요소 삭제
         //                                     : 삭제된 값을 수 반환
 		// 상품 저장 후 최대 개수보다 많은 데이터 삭제하기 위해 zremrangebyrank 명령수행하여 가장 오래된 데이터 삭제
-		jedis.zremrangeByRank(this.KEY, -(LIST_MAX_SIZE+1), -(LIST_MAX_SIZE+1));
+		jedis.zremrangeByRank(this.key, -(LIST_MAX_SIZE+1), -(LIST_MAX_SIZE+1));
 		System.out.println("최근 조회 상품목록에 상품 추가 add - " + result);
 		return result;
 	}
@@ -53,8 +53,8 @@ public class RecentViewListV2 {
 	public Set<String> getRecentViewList() {
 		// zrange(키,시작인덱스,종료인덱스) : 시작인덱스부터 종료인덱스까지 가중치 오름차순으로 조회 (zrevrange는 내림차순
 		//                               : 조회된 값 목록 반환
-		System.out.println("주어진 사용자의 저장된 최근 조회 상품 목록 조회 getRecentViewList - " + this.jedis.zrevrange(this.KEY, 0, -1));
-		return this.jedis.zrevrange(this.KEY, 0, -1);
+		System.out.println("주어진 사용자의 저장된 최근 조회 상품 목록 조회 getRecentViewList - " + this.jedis.zrevrange(this.key, 0, -1));
+		return this.jedis.zrevrange(this.key, 0, -1);
 	}
 	
 	/**
@@ -63,8 +63,8 @@ public class RecentViewListV2 {
 	 * @return 조회된 상품 목록
 	 */
 	public Set<String> getRecentViewList(int cnt) {
-		System.out.println("주어진 개수에 해당하는 최근 조회 상품 목록 조회 getRecentViewList - " + this.jedis.zrevrange(this.KEY, 0, cnt-1));
-		return this.jedis.zrevrange(this.KEY, 0, cnt-1);
+		System.out.println("주어진 개수에 해당하는 최근 조회 상품 목록 조회 getRecentViewList - " + this.jedis.zrevrange(this.key, 0, cnt-1));
+		return this.jedis.zrevrange(this.key, 0, cnt-1);
 	}
 	
 	/**

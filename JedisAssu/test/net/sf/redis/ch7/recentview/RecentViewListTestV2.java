@@ -25,7 +25,7 @@ public class RecentViewListTestV2 {
 	static JedisHelper helper;
 	private RecentViewListV2 recentViewListV2;
 	private static final String TEST_USER = "12345";
-	private int LIST_MAX_SIZE;
+	private int listMaxSize;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() {
@@ -41,7 +41,7 @@ public class RecentViewListTestV2 {
 	public void setUp() {
 		this.recentViewListV2 = new RecentViewListV2(helper, TEST_USER);
 		assertNotNull(this.recentViewListV2);
-		this.LIST_MAX_SIZE = this.recentViewListV2.getListMaxSize();
+		this.listMaxSize = this.recentViewListV2.getListMaxSize();
 	}
 	
 	/**
@@ -60,7 +60,7 @@ public class RecentViewListTestV2 {
 	@Test
 	public void checkMaxSize() {
 		int storedSize = this.recentViewListV2.getRecentViewList().size();
-		assertEquals(this.LIST_MAX_SIZE, storedSize);
+		assertEquals(this.listMaxSize, storedSize);
 	}
 	
 	/**
@@ -79,7 +79,7 @@ public class RecentViewListTestV2 {
 	@Test
 	public void checkProductNo() {
 		this.recentViewListV2.add("48");
-		assertEquals(this.recentViewListV2.getRecentViewList().size(), this.LIST_MAX_SIZE);
+		assertEquals(this.recentViewListV2.getRecentViewList().size(), this.listMaxSize);
 		Set<String> itemList = this.recentViewListV2.getRecentViewList(5);
 		
 		for (String item : itemList) {
